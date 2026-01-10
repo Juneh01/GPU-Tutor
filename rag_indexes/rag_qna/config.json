@@ -1,0 +1,5 @@
+{
+  "embedding_model": "BAAI/bge-small-zh-v1.5",
+  "num_chunks": 9323,
+  "dimension": 512
+}
