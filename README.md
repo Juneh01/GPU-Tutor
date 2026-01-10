@@ -260,7 +260,7 @@ max_num_batched_tokens = 32768
 | Baseline | 16,624 | - |
 | + vLLM Optimization | 22,973 | +38% |
 | + RAG Optimization | 26,458 | +15% |
-| + Full Pipeline | **33,031** | +25% |
+| + Full Pipeline | **33529.45** | +25% |
 
 ## 🔧 Configuration
 
