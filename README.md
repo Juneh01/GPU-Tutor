@@ -123,7 +123,14 @@ curl -X POST http://localhost:8000/predict \
 docker build -t gpu-tutor .
 
 # Run container
-docker run -d --gpus all -p 8000:8000 gpu-tutor
+docker run --gpus all -p 8000:8000 --name gpu-test gpu-tutor
+
+python demo_ui.py
+
+#
+docker stop gpu-test
+docker rm gpu-test
+docker rmi gpu-tutor
 ```
 
 ## 🎯 Fine-tuning
@@ -188,6 +195,8 @@ Default                → rag_qna
 ```
 
 ## 🎨 Demo Interface
+
+![alt text](image.png)
 
 ```bash
 # Start backend
