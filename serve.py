@@ -32,7 +32,7 @@ SPECIAL_TOKENS = ["<|im_end|>", "<|im_start|>", "<|endoftext|>", "</s>", "assist
 
 # ==================== 配置 ====================
 class Config:
-    MODEL_PATH = "./Qwen3-0.6B-gpu-dpo-merged" #./Qwen3-0.6B-finetuned-merged Qwen3-0.6B-lora-light-merged Qwen3-0.6B-sft-merged
+    MODEL_PATH = "./local-model" #./Qwen3-0.6B-finetuned-merged Qwen3-0.6B-lora-light-merged Qwen3-0.6B-sft-merged
     # /home/howard/Workspace/IEEEAICAS/code/Qwen2.5-0.5B
     # ./Qwen3-0.6B-gpu-dpo-merged
     # RAG配置
