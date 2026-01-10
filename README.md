@@ -119,6 +119,9 @@ curl -X POST http://localhost:8000/predict \
 ## 🐳 Docker Deployment
 
 ```bash
+# pull vLLM image
+docker pull vllm/vllm-openai@sha256:6766ce0c459e24b76f3e9ba14ffc0442131ef4248c904efdcbf0d89e38be01fe
+
 # Build image
 docker build -t gpu-tutor .
 
