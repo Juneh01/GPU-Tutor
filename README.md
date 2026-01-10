@@ -165,7 +165,7 @@ EPOCHS = 1
 
 | Index | Content | Chunks |
 |-------|---------|--------|
-| rag_qna | Course Q&A pairs | ~2,000 |
+| rag_qna | Course Q&A pairs | ~8,000 |
 | rag_cuda | CUDA documentation | ~3,000 |
 | rag_triton | Triton tutorials | ~1,500 |
 | rag_advanced | TileLang/PTX docs | ~1,000 |
