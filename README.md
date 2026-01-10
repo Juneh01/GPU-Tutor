@@ -32,7 +32,7 @@ A high-performance intelligent Q&A system for GPU architecture and programming, 
               └────────────────┬───────────────┘
                                ▼
               ┌────────────────────────────────┐
-              │   Qwen2.5-0.5B (SFT + DPO)     │
+              │     Qwen3-0.6B (SFT + DPO)     │
               │        vLLM Inference          │
               └────────────────┬───────────────┘
                                ▼
@@ -105,7 +105,7 @@ python download_model.py
 ### 3. Start the Server
 
 ```bash
-python serve.py
+uvicorn serve:app --host 0.0.0.0 --port 8000
 ```
 
 ### 4. Test the API
@@ -125,9 +125,10 @@ docker build -t gpu-tutor .
 # Run container
 docker run --gpus all -p 8000:8000 --name gpu-test gpu-tutor
 
+# start UI
 python demo_ui.py
 
-#
+# Clean Docker image and container
 docker stop gpu-test
 docker rm gpu-test
 docker rmi gpu-tutor
@@ -174,7 +175,7 @@ EPOCHS = 1
 |-------|---------|--------|
 | rag_qna | Course Q&A pairs | ~8,000 |
 | rag_cuda | CUDA documentation | ~3,000 |
-| rag_triton | Triton tutorials | ~1,500 |
+| rag_triton | Triton tutorials | ~100 |
 | rag_advanced | TileLang/PTX docs | ~1,000 |
 
 ### Build RAG Indexes
@@ -201,6 +202,8 @@ Default                → rag_qna
 ```bash
 # Start backend
 python serve.py
+# or  
+uvicorn serve:app --host 0.0.0.0 --port 8000
 
 # Start frontend (in another terminal)
 python demo_ui.py
@@ -215,9 +218,9 @@ python demo_ui.py
 | Config | Accuracy | Speed | Conclusion |
 |--------|----------|-------|------------|
 | FP16 | 0.38 | 33,000 c/s | ✅ Best |
-| W4A16 | 0.35 | 31,000 c/s | ❌ Both decreased |
+| W4A16 | 0.35 | 20,000 c/s | ❌ Both decreased |
 
-For small models (0.5B), quantization overhead outweighs benefits.
+For small models (0.6B), quantization overhead outweighs benefits.
 
 ### vLLM Optimizations
 
@@ -243,8 +246,8 @@ max_num_batched_tokens = 32768
 | Stage | Accuracy | Improvement |
 |-------|----------|-------------|
 | Base Model | 0.15 | - |
-| + RAG | 0.28 | +87% |
-| + SFT | 0.35 | +25% |
+| + SFT | 0.28 | +87% |
+| + RAG | 0.37 | +25% |
 | + DPO | **0.38** | +9% |
 
 ### Speed Improvement
@@ -262,7 +265,7 @@ Key configurations in `serve.py`:
 
 ```python
 class Config:
-    MODEL_PATH = "./Qwen2.5-0.5B-gpu-dpo-merged"
+    MODEL_PATH = "./local-model"
     
     # RAG
     USE_RAG = True
@@ -330,4 +333,4 @@ For questions or issues, please open an issue on GitHub.
 
 ---
 
-**Made with ❤️ for GPU Programming Education**
+**Made with ❤️ for GPU and MLSys**
