@@ -1,6 +1,0 @@
-# ModelScope SDK（国内模型下载）
-modelscope
-
-# RAG依赖
-sentence-transformers>=2.2.0
-faiss-cpu>=1.7.0
