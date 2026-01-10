@@ -116,7 +116,7 @@ curl -X POST http://localhost:8000/predict \
   -d '{"prompt": "What is CUDA shared memory?"}'
 ```
 
-## 🐳 Docker Deployment
+## 🐳 Docker Deployment (Recommeded)
 
 ```bash
 # pull vLLM image
