@@ -1,5 +1,7 @@
 # 🚀 GPU-Tutor
 
+2025年秋季国科大《GPU架构与编程》
+
 A high-performance intelligent Q&A system for GPU architecture and programming, based on SFT+DPO fine-tuning and multi-index RAG.
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
