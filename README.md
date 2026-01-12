@@ -216,6 +216,14 @@ python demo_ui.py
 # Open browser: http://localhost:7860
 ```
 
+## ✍️ Test
+```bash
+python generate_predictions_batch.py -d ./path/to/your/json
+# ROUGE-L accuracy
+python evaluate_local.py
+```
+
+
 ## ⚡ Optimization Details
 
 ### Why No Quantization?
